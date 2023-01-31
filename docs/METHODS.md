@@ -1,38 +1,56 @@
 # validatePrivateKey
 
-`validatePrivateKey(privateKey: string|Byte32): boolean`
+Validates a private key with `secp256k1_ec_seckey_verify` function. Result will be a boolean `true` or `false`.
 
-Validates a private key with `secp256k1_ec_seckey_verify` function.
+## Request: `array`
 
-## Request
+| Index | Datatype        | Required | Description                                                                    |
+|-------|-----------------|----------|--------------------------------------------------------------------------------|
+| 0     | string / Byte32 | Yes      | A valid 32 bytes private key encoded in Hexadecimal (total 64 characters long) |
 
-| Index | Datatype        | Required | Description                                                                                                            |
-|-------|-----------------|----------|------------------------------------------------------------------------------------------------------------------------|
-| 0     | string (Byte32) | Yes      | A valid 32 bytes private key encoded in Hexadecimal (total 64 characters long)                                         |
+## Response: `bool`
 
-## Response
-
-Datatype: `boolean`
+---
 
 # createPublicKey
 
-`createPublicKey(privateKey: string|Byte32, createBoth: boolean = false): object`
+Generates compressed and uncompressed public keys from the private key. Return [PublicKeyObject](#PublicKeyObject).
 
-Generates public key from the private key.
-
-## Request
+## Request: `array`
 
 | Index | Datatype        | Required | Description                                                                                                            |
 |-------|-----------------|----------|------------------------------------------------------------------------------------------------------------------------|
-| 0     | string (Byte32) | Yes      | A valid 32 bytes private key encoded in Hexadecimal (total 64 characters long)                                         |
+| 0     | string / Byte32 | Yes      | A valid 32 bytes private key encoded in Hexadecimal (total 64 characters long)                                         |
 | 1     | boolean         | No       | If set to `true` then response will have both compressed and uncompressed variants of public key. Defaults to `false`. |
 
-## Response
+## Response: `PublicKeyObject`
 
-Datatype: `object`
+### PublicKeyObject
 
 | Key          | Datatype      | Description                                                                            |
 |--------------|---------------|----------------------------------------------------------------------------------------|
 | compressed   | string        | Compressed variant of public key encoded in Hexadecimal (66 hexits = 33 raw bytes)     |
 | unCompressed | string / NULL | Uncompressed variant of public key. Only returned if second argument is set to `true`. |
+
+---
+
+# ecdsaSign
+
+Performs ECDSA signature on given message hash using given private key. 
+
+* Returns a `DER` serialized signature as `string`.
+* Returns a 65 byte compact signature `{r,s,v}` when making a recoverable signature. 
+
+## Request: `array`
+
+| Index | Datatype        | Required | Description                                                                                                       |
+|-------|-----------------|----------|-------------------------------------------------------------------------------------------------------------------|
+| 0     | string / Byte32 | Yes      | A valid 32 bytes private key encoded in Hexadecimal (total 64 characters long)                                    |
+| 1     | string / Byte32 | Yes      | A valid 32 bytes hash (`SHA256`) of message to be signed.                                                         |
+| 2     | boolean         | No       | If `true` uses `secp256k1_ecdsa_sign_recoverable` instead of `secp256k1_ecdsa_sign` function. Defaults to `true`. |
+
+## Response: `string`
+
+
+
 
