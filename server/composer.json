@@ -1,0 +1,13 @@
+{
+  "name": "furqansiddiqui/secp256k1-rpc",
+  "minimum-stability": "dev",
+  "require": {
+  },
+  "autoload": {
+    "psr-4": {
+      "FurqanSiddiqui\\Secp256k1_RPC\\": [
+        "src"
+      ]
+    }
+  }
+}
