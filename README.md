@@ -1,4 +1,4 @@
-# Secp256k1 lib for PHP
+# libSecp256k1 over RPC
 
 * There are hundreds if not 1000+ `secp256k1` implementations available spread across various programming languages.
 * The most prominent implementation of `secp256k1` is bitcoin's
@@ -14,7 +14,7 @@
 
 Everyone from GitHub community is welcome to audit the codebase.
 
-## :Security Considerations
+## Security Considerations
 
 * It is quite actually the same as running Bitcoin core. So, if you have Bitcoin core installed on your server/computer,
   you will notice that all communication between `bitcoind` and its `cli` and `qt` components are in fact made using RPC
@@ -23,8 +23,8 @@ Everyone from GitHub community is welcome to audit the codebase.
   elsewhere and connect to it remotely. It is even highly discouraged to use it over LAN/vLAN (however any vulnerability
   depends on your use-case and threat model).
 * Real security threat are NOT really the incoming connections from outside, but instead the real security threat is
-  when this RPC server is deployed elsewhere and attempt to connect to it remotely. TCP by nature is not secure and data packets
-  are visible to attackers. **Run and use locally!**
+  when this RPC server is deployed elsewhere and attempt to connect to it remotely. TCP by nature is not secure and data
+  packets are visible to attackers. **Run and use locally!**
 
 ## Before Starting
 
