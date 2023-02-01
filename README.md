@@ -1,11 +1,13 @@
-### :radioactive: First, understand what this project is about before going any further with this!
+# :radioactive: Secp256k1 lib for PHP
+
+## First, understand what this project is about before going any further with this!
 
 * There are hundreds if not 1000+ `secp256k1` implementations available spread across various programming languages.
 * The most prominent implementation of `secp256k1` is bitcoin's
   original [libsecp256k1](https://github.com/bitcoin-core/secp256k1/) which is written in C lang.
-* This project aims to provide the ability to work with
+* **This project aims to provide the ability to work with
   original [libsecp256k1](https://github.com/bitcoin-core/secp256k1/) directly using RPC for projects that are not
-  written in C lang.
+  written in C lang.**
 * This project runs in a docker container (essentially as a background process) which exposes a TCP port "locally" for
   communications.
 * Default configuration prevents any exposure to LAN/WAN.
@@ -43,9 +45,8 @@ OR, to build from source code:
 
 ## Start JSON RPC server
 
-Actual command to run the container should vary according to your own implementation and use case.
-
-An example command that exposes port `27270` locally, while container is given with an isolated docker network:
+Actual command to run the container should vary according to your own implementation and use case. An example command
+that exposes port `27270` locally, while container is given with an isolated docker network:
 
 ### Creating a separate docker network:
 

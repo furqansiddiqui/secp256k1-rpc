@@ -36,10 +36,10 @@ Generates compressed and uncompressed public keys from the private key. Return [
 
 # ecdsaSign
 
-Performs ECDSA signature on given message hash using given private key. 
+Performs ECDSA signature on given message hash using given private key.
 
 * Returns a `DER` serialized signature as `string`.
-* Returns a 65 byte compact signature `{r,s,v}` when making a recoverable signature. 
+* Returns a 65 byte compact signature `{v,r,s}` when making a recoverable signature.
 
 ## Request: `array`
 
@@ -51,6 +51,34 @@ Performs ECDSA signature on given message hash using given private key.
 
 ## Response: `string`
 
+---
 
+# ecdsaRecover
 
+Recovers a public key from given compact recoverable signature and message hash.
+
+## Request: `array`
+
+| Index | Datatype           | Required | Description                                                   |
+|-------|--------------------|----------|---------------------------------------------------------------|
+| 0     | string / Signature | Yes      | 65 byte compact recoverable signature                         |
+| 1     | string / Byte32    | Yes      | A valid 32 bytes hash (`SHA256`) that was used for signature. |
+
+## Response: `string`
+
+--- 
+
+# ecdsaVerify
+
+Verifies a DER encoded signature with given arguments
+
+## Request: `array`
+
+| Index | Datatype | Required | Description                                                   |
+|-------|----------|----------|---------------------------------------------------------------|
+| 0     | string   | Yes      | 65 byte compact recoverable signature                         |
+| 1     | string   | Yes      | A valid 32 bytes hash (`SHA256`) that was used for signature. |
+| 2     | string   | Yes      | A valid 32 bytes hash (`SHA256`) that was used for signature. |
+
+## Response: `bool`
 
