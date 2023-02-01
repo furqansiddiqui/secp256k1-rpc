@@ -1,7 +1,5 @@
 # Secp256k1 lib for PHP
 
-### :radioactive: First, understand what this project is about before going any further with this!
-
 * There are hundreds if not 1000+ `secp256k1` implementations available spread across various programming languages.
 * The most prominent implementation of `secp256k1` is bitcoin's
   original [libsecp256k1](https://github.com/bitcoin-core/secp256k1/) which is written in C lang.
@@ -16,11 +14,14 @@
 
 Everyone from GitHub community is welcome to audit the codebase.
 
-## Security Considerations
+## :radioactive: Security Considerations
 
 * It is quite actually the same as running Bitcoin core. So, if you have Bitcoin core installed on your server/computer,
   you will notice that all communication between `bitcoind` and its `cli` and `qt` components are in fact made using RPC
-  over TCP. Any command sent to `bitcoin-cli` is actually converted to a HTTP call to `bitcoind` RPC server.
+  over TCP. Any command sent to `bitcoin-cli` is actually converted to an HTTP call to `bitcoind` RPC server.
+* Intended purpose of this project is to **run locally** in your system. It is **NOT** recommended to deploy it
+  elsewhere and connect to it remotely. It is even highly discouraged to use it over LAN/vLAN (however any vulnerability
+  depends on your use-case and threat model).
 
 ## Before Starting
 
