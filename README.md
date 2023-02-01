@@ -1,6 +1,6 @@
-# :radioactive: Secp256k1 lib for PHP
+# Secp256k1 lib for PHP
 
-## First, understand what this project is about before going any further with this!
+### :radioactive: First, understand what this project is about before going any further with this!
 
 * There are hundreds if not 1000+ `secp256k1` implementations available spread across various programming languages.
 * The most prominent implementation of `secp256k1` is bitcoin's
@@ -11,6 +11,10 @@
 * This project runs in a docker container (essentially as a background process) which exposes a TCP port "locally" for
   communications.
 * Default configuration prevents any exposure to LAN/WAN.
+
+### Trust, but verify!
+
+Everyone from GitHub community is welcome to audit the codebase.
 
 ## Security Considerations
 
